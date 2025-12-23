@@ -1,239 +1,108 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TULIP PERFUME | Luxury Store</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <title>TULIP PERFUME - متجر العطور الرسمي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
     <style>
-        :root { --tulip-pink: #e8a0a4; --text-black: #1a1a1a; }
-        body { font-family: 'Cairo', sans-serif; margin: 0; background: #fff; color: var(--text-black); overflow-x: hidden; }
-
-        /* الهيدر والأقسام */
-        header { border-bottom: 1px solid #eee; background: white; position: sticky; top: 0; z-index: 1000; padding: 15px 5%; }
-        .header-main { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-        .logo { width: 100px; cursor: pointer; }
-        
-        nav { display: flex; justify-content: center; gap: 30px; padding: 15px 0; background: #fff; border-bottom: 1px solid #f9f9f9; }
-        nav a { text-decoration: none; color: #888; font-size: 13px; font-weight: bold; cursor: pointer; transition: 0.3s; position: relative; }
-        nav a:hover, nav a.active { color: var(--tulip-pink); }
-        nav a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--tulip-pink); }
-
-        /* شبكة المنتجات */
-        .grid-container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px; }
-        .product-card { text-align: center; animation: fadeIn 0.5s ease; border: 1px solid #f9f9f9; padding: 10px; border-radius: 8px; }
-        .product-card img { width: 100%; height: 400px; object-fit: cover; background: #fbfbfb; border-radius: 4px; }
-        .product-title { font-family: 'Playfair Display', serif; font-size: 18px; margin: 15px 0 5px; }
-        .product-price { color: var(--tulip-pink); font-weight: bold; font-size: 16px; margin-bottom: 10px; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* المودالات */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-box { background: white; width: 90%; max-width: 450px; padding: 30px; border-radius: 15px; position: relative; max-height: 85vh; overflow-y: auto; }
-        .close-btn { position: absolute; top: 10px; left: 15px; cursor: pointer; font-size: 25px; }
-
-        .btn-black { background: black; color: white; border: none; padding: 16px; width: 100%; cursor: pointer; font-weight: bold; border-radius: 8px; margin-top: 15px; font-size: 16px; }
-        input, select, textarea { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; font-family: 'Cairo'; box-sizing: border-box; }
-        
-        .tab-btn { padding: 12px; border: 1px solid #ddd; background: #fff; cursor: pointer; width: 49%; font-family: 'Cairo'; border-radius: 8px; }
-        .tab-btn.active { background: var(--tulip-pink); color: white; border-color: var(--tulip-pink); }
-
-        .iti { width: 100%; margin: 10px 0; }
-        .iti__input { width: 100% !important; height: 55px !important; font-size: 16px !important; border: 1px solid #ddd !important; border-radius: 8px !important; }
-
-        .badge { position: absolute; top: -10px; right: -12px; background: black; color: white; font-size: 11px; padding: 2px 7px; border-radius: 50%; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fffafb; color: #444; }
+        header { background-color: #6d4c41; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 15px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .btn-buy { background-color: #d4a373; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        footer { background-color: #6d4c41; color: white; padding: 30px 20px; text-align: center; margin-top: 50px; }
+        .social-links a { color: white; margin: 0 15px; font-size: 24px; text-decoration: none; }
+        /* استايل نافذة الـ SMS */
+        #loginOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .modal { background: white; padding: 30px; border-radius: 15px; text-align: center; width: 90%; max-width: 400px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-main">
-            <i class="fa-regular fa-user" onclick="toggleModal('loginOverlay')" style="cursor:pointer; font-size: 20px;"></i>
-            <img src="logo.jpg" class="logo" onclick="renderProducts('all')">
-            <div style="position:relative; cursor:pointer;" onclick="openCartReview()">
-                <i class="fa-solid fa-bag-shopping" style="color:var(--tulip-pink); font-size:22px;"></i>
-                <span id="cartCount" class="badge">0</span>
-            </div>
+<header>
+    <h1>TULIP PERFUME</h1>
+    <p>متجر إلكتروني للعطور ومنتجات العناية بالجسم</p>
+</header>
+
+<div class="container">
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="body.jpg" alt="Body Splash">
+            <h3>بودي سبلاش توليب</h3>
+            <p>السعر: 120 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
         </div>
-        <nav id="categoryNav">
-            <a onclick="renderProducts('all')" class="active">ALL</a>
-            <a onclick="renderProducts('fragrance')">FRAGRANCE</a>
-            <a onclick="renderProducts('body')">BODY CARE</a>
-            <a onclick="renderProducts('candles')">CANDLES</a>
-        </nav>
-    </header>
-
-    <div class="grid-container">
-        <h1 style="text-align:center; font-family:'Playfair Display', serif; margin-bottom:50px;">Luxury Collection</h1>
-        <div class="grid" id="productGrid"></div>
-    </div>
-
-    <div id="loginOverlay" class="modal-overlay">
-        <div class="modal-box">
-            <span class="close-btn" onclick="toggleModal('loginOverlay')">&times;</span>
-            <h2 style="text-align:center; margin-bottom:25px;">إنشاء حساب جديد</h2>
-            <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                <button class="tab-btn active" id="phoneTab" onclick="switchTab('phone')">رقم الهاتف</button>
-                <button class="tab-btn" id="emailTab" onclick="switchTab('email')">البريد الإلكتروني</button>
-            </div>
-            <div id="phoneArea"><input type="tel" id="phoneInput"></div>
-            <div id="emailArea" style="display:none"><input type="email" placeholder="البريد الإلكتروني"></div>
-            <input type="password" placeholder="كلمة المرور">
-            <button class="btn-black" onclick="mockLogin()">إنشاء الحساب</button>
+        <div class="product-card">
+            <img src="makhmariya.jpg" alt="مخمرية">
+            <h3>مخمرية توليب العطرية</h3>
+            <p>السعر: 55 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+        <div class="product-card">
+            <img src="set.jpg" alt="مجموعة توليب">
+            <h3>مجموعة التوليب المتكاملة</h3>
+            <p>السعر: 350 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
         </div>
     </div>
+</div>
 
-    <div id="cartReviewModal" class="modal-overlay">
-        <div class="modal-box">
-            <span class="close-btn" onclick="toggleModal('cartReviewModal')">&times;</span>
-            <h3 style="text-align:center;">سلة المشتريات 🛍️</h3>
-            <div id="cartList"></div>
-            <div style="margin-top:20px; font-weight:bold;">الإجمالي: <span id="totalPrice">0</span> ج.م</div>
-            <button class="btn-black" onclick="goToCheckout()">إتمام الطلب</button>
-        </div>
+<div id="loginOverlay">
+    <div class="modal">
+        <h3>تأكيد الطلب</h3>
+        <p>يرجى إدخال رقم هاتفك لتصلك رسالة التأكيد (SMS)</p>
+        <input type="tel" id="phoneInput" placeholder="01xxxxxxxxx" style="width: 80%; padding: 10px; margin-bottom: 15px;">
+        <div id="recaptcha-container"></div>
+        <button class="btn-buy" onclick="sendOTP()">إرسال كود التأكيد</button>
+        <button onclick="closeLogin()" style="background: none; border: none; color: gray; cursor: pointer; margin-top: 10px;">إلغاء</button>
     </div>
+</div>
 
-    <div id="checkoutOverlay" class="modal-overlay">
-        <div class="modal-box">
-            <span class="close-btn" onclick="toggleModal('checkoutOverlay')">&times;</span>
-            <h3 style="color:var(--tulip-pink)">تفاصيل الشحن والدفع 🚚</h3>
-            <input type="text" id="custName" placeholder="الاسم بالكامل">
-            <input type="tel" id="custPhone" placeholder="رقم التواصل">
-            <textarea id="custAddr" placeholder="العنوان بالتفصيل"></textarea>
-            <select id="payMethod">
-                <option value="cash">دفع عند الاستلام</option>
-                <option value="insta">إنستا باي (InstaPay)</option>
-            </select>
-            <button class="btn-black" onclick="sendOrder()">تأكيد وطلب عبر واتساب</button>
-        </div>
+<footer>
+    <p>تابعينا على منصات التواصل الاجتماعي</p>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
+    <p style="margin-top: 20px; font-size: 14px;">&copy; 2025 TULIP PERFUME. جميع الحقوق محفوظة</p>
+</footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-    <script>
-        let cart = [];
-        let isLoggedIn = false;
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
 
-        // قائمة المنتجات شاملة المخمرية والمجموعة
-        const products = [
-            { id: 1, name: 'LA VIE EST BELLE', price: 160, img: 'lavie.jpg', cat: 'fragrance' },
-            { id: 2, name: 'TULIP NO.1 SPECIAL', price: 130, img: 'tulip.jpg', cat: 'fragrance' },
-            { id: 3, name: 'شمعة توليب العطرية', price: 90, img: 'candle.jpg', cat: 'candles' },
-            { id: 4, name: 'بادي لوشن مرطب', price: 75, img: 'body.jpg', cat: 'body' },
-            { id: 5, name: 'مخمرية توليب العطرية', price: 55, img: 'makhmariya.jpg', cat: 'body' },
-            { id: 6, name: 'مجموعة التوليب المتكاملة', price: 350, img: 'set.jpg', cat: 'all' }
-        ];
+<script>
+    // 1. ضعي كود الـ Config الخاص بكِ من Firebase هنا
+    const firebaseConfig = {
+        apiKey: "ضع_هنا_API_KEY",
+        authDomain: "ayahm1611-svg.github.io",
+        projectId: "tulip-perfume",
+        // ... بقية البيانات من Firebase
+    };
+    firebase.initializeApp(firebaseConfig);
 
-        function renderProducts(category) {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = ""; 
-            
-            // تحديث التبويب النشط
-            const links = document.querySelectorAll('#categoryNav a');
-            links.forEach(l => l.classList.remove('active'));
-            const activeLink = Array.from(links).find(l => l.innerText.toLowerCase().includes(category.toLowerCase()));
-            if(activeLink) activeLink.classList.add('active');
+    function openLogin() { document.getElementById('loginOverlay').style.display = 'flex'; }
+    function closeLogin() { document.getElementById('loginOverlay').style.display = 'none'; }
 
-            const filtered = category === 'all' ? products : products.filter(p => p.cat === category);
-            
-            filtered.forEach(p => {
-                grid.innerHTML += `
-                    <div class="product-card">
-                        <img src="${p.img}" onerror="this.src='https://via.placeholder.com/400x500?text=TULIP'">
-                        <div class="product-title">${p.name}</div>
-                        <div class="product-price">${p.price} ج.م</div>
-                        <button class="btn-black" style="padding:10px; font-size:12px;" onclick="addToCart('${p.name}', ${p.price})">ADD TO BAG</button>
-                    </div>`;
+    function sendOTP() {
+        const phone = "+2" + document.getElementById('phoneInput').value;
+        const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        
+        firebase.auth().signInWithPhoneNumber(phone, appVerifier)
+            .then((confirmationResult) => {
+                const code = prompt("أدخلي كود الـ SMS الذي وصلك على هاتفك:");
+                return confirmationResult.confirm(code);
+            }).then(() => {
+                alert("تم تأكيد هويتك بنجاح! سيتم التواصل معكِ لتوصيل الطلب.");
+                closeLogin();
+            }).catch((error) => {
+                alert("حدث خطأ: " + error.message);
             });
-        }
+    }
+</script>
 
-        function addToCart(name, price) {
-            cart.push({name, price});
-            document.getElementById('cartCount').innerText = cart.length;
-            alert("تمت الإضافة للشنطة 🌸");
-        }
-
-        function openCartReview() {
-            if(cart.length === 0) return alert("السلة فارغة");
-            const list = document.getElementById('cartList');
-            let total = 0;
-            list.innerHTML = "";
-            cart.forEach((item, index) => {
-                total += item.price;
-                list.innerHTML += `<div class="cart-item"><span>${item.name}</span><span>${item.price} ج.م</span></div>`;
-            });
-            document.getElementById('totalPrice').innerText = total;
-            toggleModal('cartReviewModal');
-        }
-
-        function goToCheckout() {
-            if(!isLoggedIn) {
-                alert("يرجى إنشاء حساب أولاً");
-                toggleModal('cartReviewModal');
-                toggleModal('loginOverlay');
-            } else {
-                toggleModal('cartReviewModal');
-                toggleModal('checkoutOverlay');
-            }
-        }
-
-        function mockLogin() {
-            isLoggedIn = true;
-            alert("تم التسجيل بنجاح! يمكنك الآن إتمام الطلب.");
-            toggleModal('loginOverlay');
-        }
-
-        function sendOrder() {
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const addr = document.getElementById('custAddr').value;
-            const pay = document.getElementById('payMethod').value;
-
-            if(!name || !phone || !addr) return alert("يرجى إكمال كافة البيانات");
-
-            const items = cart.map(i => i.name).join(' + ');
-            const total = document.getElementById('totalPrice').innerText;
-            
-            const msg = `طلب جديد من TULIP 🌸%0Aالاسم: ${name}%0Aالهاتف: ${phone}%0Aالعنوان: ${addr}%0Aالمشتريات: ${items}%0Aطريقة الدفع: ${pay}%0Aالإجمالي: ${total} ج.م`;
-            
-            // فتح واتساب
-            window.open(`https://wa.me/201028471243?text=${msg}`, '_blank');
-
-            // تأكيد داخل الموقع
-            toggleModal('checkoutOverlay');
-            alert("شكراً لكِ! تم تسجيل طلبك بنجاح وجاري تجهيزه 💖");
-            cart = [];
-            document.getElementById('cartCount').innerText = "0";
-            location.reload();
-        }
-
-        function switchTab(type) {
-            document.getElementById('phoneArea').style.display = (type === 'phone') ? 'block' : 'none';
-            document.getElementById('emailArea').style.display = (type === 'email') ? 'block' : 'none';
-            document.getElementById('phoneTab').classList.toggle('active', type === 'phone');
-            document.getElementById('emailTab').classList.toggle('active', type === 'email');
-        }
-
-        function toggleModal(id) {
-            const m = document.getElementById(id);
-            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        window.onload = function() {
-            renderProducts('all');
-            window.intlTelInput(document.querySelector("#phoneInput"), {
-                initialCountry: "eg",
-                separateDialCode: true,
-                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-            });
-        };
-    </script>
 </body>
 </html>
-        }
