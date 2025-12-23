@@ -5,6 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TULIP PERFUME - متجر العطور الرسمي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TULIP PERFUME - متجر العطور الرسمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fffafb; color: #444; }
+        header { background-color: #6d4c41; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 15px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .btn-buy { background-color: #d4a373; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        footer { background-color: #6d4c41; color: white; padding: 30px 20px; text-align: center; margin-top: 50px; }
+        .social-links a { color: white; margin: 0 15px; font-size: 24px; text-decoration: none; }
+        /* استايل نافذة الـ SMS */
+        #loginOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .modal { background: white; padding: 30px; border-radius: 15px; text-align: center; width: 90%; max-width: 400px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TULIP PERFUME</h1>
+    <p>متجر إلكتروني للعطور ومنتجات العناية بالجسم</p>
+</header>
+
+<div class="container">
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="body.jpg" alt="Body Splash">
+            <h3>بودي سبلاش توليب</h3>
+            <p>السعر: 120 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+        <div class="product-card">
+            <img src="makhmariya.jpg" alt="مخمرية">
+            <h3>مخمرية توليب العطرية</h3>
+            <p>السعر: 55 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+        <div class="product-card">
+            <img src="set.jpg" alt="مجموعة توليب">
+            <h3>مجموعة التوليب المتكاملة</h3>
+            <p>السعر: 350 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+    </div>
+</div>
+
+<div id="loginOverlay">
+    <div class="modal">
+        <h3>تأكيد الطلب</h3>
+        <p>يرجى إدخال رقم هاتفك لتصلك رسالة التأكيد (SMS)</p>
+        <input type="tel" id="phoneInput" placeholder="01xxxxxxxxx" style="width: 80%; padding: 10px; margin-bottom: 15px;">
+        <div id="recaptcha-container"></div>
+        <button class="btn-buy" onclick="sendOTP()">إرسال كود التأكيد</button>
+        <button onclick="closeLogin()" style="background: none; border: none; color: gray; cursor: pointer; margin-top: 10px;">إلغاء</button>
+    </div>
+</div>
+
+<footer>
+    <p>تابعينا على منصات التواصل الاجتماعي</p>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p style="margin-top: 20px; font-size: 14px;">&copy; 2025 TULIP PERFUME. جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+
+<script>
+    // 1. ضعي كود الـ Config الخاص بكِ من Firebase هنا
+    const firebaseConfig = {
+        apiKey: "ضع_هنا_API_KEY",
+        authDomain: "ayahm1611-svg.github.io",
+        projectId: "tulip-perfume",
+        // ... بقية البيانات من Firebase
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function openLogin() { document.getElementById('loginOverlay').style.display = 'flex'; }
+    function closeLogin() { document.getElementById('loginOverlay').style.display = 'none'; }<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TULIP PERFUME - متجر العطور الرسمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fffafb; color: #444; }
         header { background-color: #6d4c41; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
@@ -106,3 +200,124 @@
 
 </body>
 </html>
+
+    function sendOTP() {
+        const phone = "+2" + document.getElementById('phoneInput').value;
+        const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        
+        firebase.auth().signInWithPhoneNumber(phone, appVerifier)
+            .then((confirmationResult) => {
+                const code = prompt("أدخلي كود الـ SMS الذي وصلك على هاتفك:");
+                return confirmationResult.confirm(code);
+            }).then(() => {
+                alert("تم تأكيد هويتك بنجاح! سيتم التواصل معكِ لتوصيل الطلب.");
+                closeLogin();
+            }).catch((error) => {
+                alert("حدث خطأ: " + error.message);
+            });
+    }
+</script>
+
+</body>
+</html>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #fffafb; color: #444; }
+        header { background-color: #6d4c41; color: white; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .product-card { background: white; border-radius: 15px; padding: 15px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .btn-buy { background-color: #d4a373; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        footer { background-color: #6d4c41; color: white; padding: 30px 20px; text-align: center; margin-top: 50px; }
+        .social-links a { color: white; margin: 0 15px; font-size: 24px; text-decoration: none; }
+        /* استايل نافذة الـ SMS */
+        #loginOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .modal { background: white; padding: 30px; border-radius: 15px; text-align: center; width: 90%; max-width: 400px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TULIP PERFUME</h1>
+    <p>متجر إلكتروني للعطور ومنتجات العناية بالجسم</p>
+</header>
+
+<div class="container">
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="body.jpg" alt="Body Splash">
+            <h3>بودي سبلاش توليب</h3>
+            <p>السعر: 120 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+        <div class="product-card">
+            <img src="makhmariya.jpg" alt="مخمرية">
+            <h3>مخمرية توليب العطرية</h3>
+            <p>السعر: 55 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+        <div class="product-card">
+            <img src="set.jpg" alt="مجموعة توليب">
+            <h3>مجموعة التوليب المتكاملة</h3>
+            <p>السعر: 350 ج.م</p>
+            <button class="btn-buy" onclick="openLogin()">اطلبي الآن</button>
+        </div>
+    </div>
+</div>
+
+<div id="loginOverlay">
+    <div class="modal">
+        <h3>تأكيد الطلب</h3>
+        <p>يرجى إدخال رقم هاتفك لتصلك رسالة التأكيد (SMS)</p>
+        <input type="tel" id="phoneInput" placeholder="01xxxxxxxxx" style="width: 80%; padding: 10px; margin-bottom: 15px;">
+        <div id="recaptcha-container"></div>
+        <button class="btn-buy" onclick="sendOTP()">إرسال كود التأكيد</button>
+        <button onclick="closeLogin()" style="background: none; border: none; color: gray; cursor: pointer; margin-top: 10px;">إلغاء</button>
+    </div>
+</div>
+
+<footer>
+    <p>تابعينا على منصات التواصل الاجتماعي</p>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p style="margin-top: 20px; font-size: 14px;">&copy; 2025 TULIP PERFUME. جميع الحقوق محفوظة</p>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+
+<script>
+    // 1. ضعي كود الـ Config الخاص بكِ من Firebase هنا
+    const firebaseConfig = {
+        apiKey: "ضع_هنا_API_KEY",
+        authDomain: "ayahm1611-svg.github.io",
+        projectId: "tulip-perfume",
+        // ... بقية البيانات من Firebase
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    function openLogin() { document.getElementById('loginOverlay').style.display = 'flex'; }
+    function closeLogin() { document.getElementById('loginOverlay').style.display = 'none'; }
+
+    function sendOTP() {
+        const phone = "+2" + document.getElementById('phoneInput').value;
+        const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+        
+        firebase.auth().signInWithPhoneNumber(phone, appVerifier)
+            .then((confirmationResult) => {
+                const code = prompt("أدخلي كود الـ SMS الذي وصلك على هاتفك:");
+                return confirmationResult.confirm(code);
+            }).then(() => {
+                alert("تم تأكيد هويتك بنجاح! سيتم التواصل معكِ لتوصيل الطلب.");
+                closeLogin();
+            }).catch((error) => {
+                alert("حدث خطأ: " + error.message);
+            });
+    }
+</script>
+
+</body>
+</html>
+
